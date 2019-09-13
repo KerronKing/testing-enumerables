@@ -1,11 +1,10 @@
 require './lib/main'
 
 RSpec.describe Enumerable do
-  describe "#my_each_with_index" do
-    it "calls a block with two arguments on each item" do
-      arr = [1]
-      result = "1 has an index of 0"
-      expect(arr.my_each_with_index { |x, y| puts "#{x} has an index of #{y}" }).to eql(result)
+  describe "#my_count" do
+    it "calls a block on an object and returns the number of elements" do
+      arr = [1, 2, 3, 4, 5]
+      expect(arr.my_count).to eql(5)
     end
   end
     
@@ -27,7 +26,7 @@ RSpec.describe Enumerable do
   describe "#my_none?" do
     it "returns true if the block passed returns false for each item in the array" do
       arr = [1, 2, 3]
-      expect(arr.my_each_with_index {|x| x > 4}).to(eql(true))
+      expect(arr.my_none? {|x| x > 4}).to(eql(true))
     end
   end
     
@@ -35,14 +34,14 @@ RSpec.describe Enumerable do
     it "returns an array containing the items that return through when a block is passed to them" do
       arr = [1, 2, 3, 4]
       result = [2, 4]
-      expect(arr.my_each_with_index {|x| x % 2 == 0}).to(eql(result))
+      expect(arr.my_select {|x| x % 2 == 0}).to(eql(result))
     end
   end
     
   describe "#my_inject" do
     it "combines all elements by applying a binary function specified in a block" do
       arr = [1, 2, 3]
-      expect(arr.my_each_with_index {|x,y| x + y}).to(eql(6))
+      expect(arr.my_inject {|x,y| x + y}).to(eql(6))
     end
   end
-  end
+end
