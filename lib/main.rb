@@ -80,12 +80,12 @@ module Enumerable
     end
 
     unless block_given?
-      unless arg.nil?
+      if arg.nil? arg.nil?
+        result = self
+      else
         my_each do |elem|
           result << elem if elem == arg
         end
-      else arg == nil
-        result = self
       end
     end
     result.size
