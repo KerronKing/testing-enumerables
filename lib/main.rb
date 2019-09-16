@@ -84,8 +84,7 @@ module Enumerable
         my_each do |elem|
           result << elem if elem == arg
         end
-      end
-      if arg == nil
+      else arg == nil
         result = self
       end
     end
