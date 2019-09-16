@@ -15,7 +15,7 @@ RSpec.describe Enumerable do
     end
 
     it 'calls a block on an object and returns the number of elements that evaluate to true' do
-      expect(arr.my_count {|x| x < 4}).to eql(3)
+      expect(arr.my_count { |x| x < 4 }).to eql(3)
     end
   end
 
