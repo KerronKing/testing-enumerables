@@ -3,7 +3,7 @@
 require './lib/main'
 
 RSpec.describe Enumerable do
-  let(:arr){[1, 2, 3]}
+  let(:arr) { [1, 2, 3] }
 
   describe '#my_count' do
     it 'calls a block on an object and returns the number of elements' do
@@ -26,7 +26,6 @@ RSpec.describe Enumerable do
       result = [-1, 0, 1]
       expect(arr.my_map { |x| x - 2 }).to(eql(result))
     end
-
   end
 
   describe '#my_any?' do
@@ -34,7 +33,7 @@ RSpec.describe Enumerable do
       expect(arr.my_any? { |x| x > 2 }).to(eql(true))
     end
     it 'returns false if the block passed returns false for all item in the array' do
-      expect(arr.my_any? {|x| x > 3 }).to(eql(false))
+      expect(arr.my_any? { |x| x > 3 }).to(eql(false))
     end
   end
 
@@ -43,10 +42,10 @@ RSpec.describe Enumerable do
       expect(arr.my_none? { |x| x > 4 }).to(eql(true))
     end
     it 'returns false if the block passed returns true for any item in the array' do
-      expect(arr.my_none? {|x| x > 2}).to(eql(false))
+      expect(arr.my_none? { |x| x > 2 }).to(eql(false))
     end
     it 'returns false if the block passed returns true for all items in the array' do
-      expect(arr.my_none? {|x| x < 4}).to(eql(false))
+      expect(arr.my_none? { |x| x < 4 }).to(eql(false))
     end
   end
 
